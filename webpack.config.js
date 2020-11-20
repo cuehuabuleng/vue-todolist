@@ -1,5 +1,5 @@
 const path = require('path')
-const VueLoaderPlugin = require('./node_modules/vue-loader/lib/plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const HTMLPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
 const isDev = process.env.NODE_ENV === 'development'
@@ -32,7 +32,14 @@ const config = {
                 loader: 'babel-loader'
             },
             {
-                test: /\.styl$/,
+                test: /\.css$/,
+                use: [
+                    'style-loader',
+                    'css-loader'
+                ]
+            },
+            {
+                test: /\.styl(us)?$/,
                 use: [
                     'style-loader',
                     'css-loader',
@@ -45,13 +52,7 @@ const config = {
                     'stylus-loader'
                 ]
             },
-            {
-                test: /\.css$/,
-                use: [
-                    'style-loader',
-                    'css-loader'
-                ]
-            },
+
             {
                 test: /\.(gif|jpg|jpeg|png|svg)$/,
                 use: [
