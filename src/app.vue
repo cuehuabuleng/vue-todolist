@@ -1,16 +1,21 @@
 <template>
   <div id="app">
     <div id="cover">
-      45
+      <Header></Header>
+      <Todo></Todo>
+      <Footer></Footer>
     </div>
   </div>
 </template>
 <script>
+import Header from './src/header/header.vue'
+import Footer from './src/footer/footer.jsx'
+import Todo from './src/todo/todo.vue'
 export default {
-  data() {
-    return {
-      text: "123"
-    }
+  components:{
+    Header,
+    Footer,
+    Todo
   }
 }
 </script>
@@ -31,7 +36,6 @@ export default {
   bottom 0
   background-color #999
   opacity .9
-  z-index -1
 }
 #loading{
   position fixed
